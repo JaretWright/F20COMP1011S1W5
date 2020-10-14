@@ -103,7 +103,7 @@ public class Patient {
         return province;
     }
 
-    public static ArrayList<String> getProviceList()
+    public static ArrayList<String> getProvinceList()
     {
         ArrayList<String> provinces = new ArrayList(Arrays.asList("NL","PE","NS","NB","QC","ON","MB","SK","AB",
                 "BC","YT","NT","NU"));
@@ -112,10 +112,10 @@ public class Patient {
     }
 
     public void setProvince(String province) {
-        if (getProviceList().contains(province))
+        if (getProvinceList().contains(province))
             this.province = province;
         else
-            throw new IllegalArgumentException("Province must be in the list: "+getProviceList());
+            throw new IllegalArgumentException("Province must be in the list: "+getProvinceList());
     }
 
     public LocalDate getBirthday() {
