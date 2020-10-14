@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
@@ -50,7 +51,12 @@
                </children>
             </GridPane>
             <Label fx:id="errMsgLabel" prefHeight="126.0" prefWidth="540.0" text="Label" wrapText="true" />
-            <Button mnemonicParsing="false" onAction="#createPatient" text="Create New Patient" />
+            <HBox alignment="TOP_RIGHT" spacing="20.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#createPatient" text="Create New Patient" />
+                  <Button mnemonicParsing="false" onAction="#changeToTableView" text="View All Patients" />
+               </children>
+            </HBox>
          </children>
          <padding>
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

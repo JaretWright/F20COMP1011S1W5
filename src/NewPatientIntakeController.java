@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -7,6 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class NewPatientIntakeController implements Initializable {
@@ -99,4 +102,22 @@ public class NewPatientIntakeController implements Initializable {
        else
            return true;
     }
+
+    /**
+     * This method will change to a new scene with all patients viewable in a table
+     */
+    @FXML
+    private void changeToTableView(ActionEvent event)
+    {
+        try {
+            ArrayList<Patient> patients = DBUtility.getAllPatients();
+
+            for (Patient patient : patients)
+                System.out.println(patient);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

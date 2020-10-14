@@ -31,6 +31,29 @@ public class Patient {
         }
     }
 
+    /**
+     * This constructor is for reading an existing Patient from a database
+     * where the ID is know.
+     * @param id
+     * @param firstName
+     * @param lastName
+     * @param phoneNum
+     * @param streetAddress
+     * @param city
+     * @param province
+     * @param birthday
+     */
+    public Patient(int id, String firstName, String lastName, String phoneNum, String streetAddress, String city, String province, LocalDate birthday) {
+        setID(id);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setPhoneNum(phoneNum);
+        setStreetAddress(streetAddress);
+        setCity(city);
+        setProvince(province);
+        setBirthday(birthday);
+    }
+
     public int getId() {
         return id;
     }
@@ -136,5 +159,10 @@ public class Patient {
     public int getAge()
     {
         return Period.between(LocalDate.now(),birthday).getYears();
+    }
+
+    public String toString()
+    {
+        return String.format("%d %s %s", id, firstName, lastName);
     }
 }

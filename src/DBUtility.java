@@ -1,4 +1,8 @@
+import javafx.collections.ArrayChangeListener;
+
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DBUtility {
     private static String user = "student";
@@ -61,4 +65,55 @@ public class DBUtility {
 
     }
 
+    /**
+     * This method will return an ArrayList of Patient objects from
+     * the database.
+     */
+    public static ArrayList<Patient> getAllPatients() throws SQLException {
+        ArrayList<Patient> patients = new ArrayList<>();
+        Connection conn = null;
+        Statement statement  = null;
+        ResultSet resultSet = null;
+
+        try {
+            //1. connect to the DB
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/F20COMP1011S1",
+                    user, password);
+
+            //2. create a statement object
+            statement = conn.createStatement();
+
+            //3. create/execute the sql query
+            resultSet = statement.executeQuery("SELECT * FROM patients");
+
+            //4. loop over the results
+            while (resultSet.next())
+            {
+                Patient newPatient = new Patient(
+                                    resultSet.getInt("id"),
+                                    resultSet.getString("firstName"),
+                                    resultSet.getString("lastName"),
+                                    resultSet.getString("phoneNum"),
+                                    resultSet.getString("streetAddress"),
+                                    resultSet.getString("city"),
+                                    resultSet.getString("province"),
+                                    resultSet.getDate("birthday").toLocalDate()
+                );
+                patients.add(newPatient);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            if (conn != null)
+                conn.close();
+            if (statement != null)
+                statement.close();
+            if (resultSet != null)
+                resultSet.close();
+            return patients;
+        }
+    }
 }
