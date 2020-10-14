@@ -33,8 +33,10 @@ public class NewPatientIntakeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         provinceComboBox.getItems().addAll(Patient.getProvinceList());
-        streetTextField.setPromptText("'Enter street address");
+        phoneNumTextField.setPromptText("Enter phone number");
+        streetTextField.setPromptText("Enter street address");
         cityTextField.setPromptText("Enter city name");
+        provinceComboBox.setPromptText("Select province");
         birthdayDatePicker.setPromptText("Select birthday");
     }
 }
