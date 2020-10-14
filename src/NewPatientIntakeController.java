@@ -4,11 +4,15 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class NewPatientIntakeController implements Initializable {
+
+    @FXML
+    private VBox vBox;
 
     @FXML
     private TextField firstNameTextField;
@@ -42,6 +46,7 @@ public class NewPatientIntakeController implements Initializable {
         cityTextField.setPromptText("Enter city name");
         provinceComboBox.setPromptText("Select province");
         birthdayDatePicker.setPromptText("Select birthday");
+
         errMsgLabel.setText("");
     }
 

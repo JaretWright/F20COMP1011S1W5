@@ -15,7 +15,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="600.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="NewPatientIntakeController">
    <children>
-      <VBox alignment="CENTER" layoutX="225.0" layoutY="39.0" prefHeight="400.0" prefWidth="600.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="vBox" alignment="CENTER" layoutX="225.0" layoutY="39.0" prefHeight="400.0" prefWidth="600.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="New Patient Intake Form" />
             <GridPane maxWidth="400.0" prefHeight="353.0" prefWidth="400.0" vgap="25.0">
