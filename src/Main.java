@@ -14,6 +14,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("newPatientIntakeView.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("stylesheet.css");
         stage.setScene(scene);
         stage.setTitle("Doctor's Office");
         stage.show();
